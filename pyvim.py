@@ -110,6 +110,7 @@ def deploy(args):
         " Plugin - NerdCommenter
         "---------------------------------------
         map <c-h> ,c<space>
+        map <c-l> ,cl<space>
         let NERDSpaceDelims=1
         ''')
 
@@ -173,10 +174,39 @@ def deploy(args):
         "---------------------------------------
         let g:pymode = 1
         ''')
+    #
+    deploy_snipmate = '''
+            cd ~/.vim/bundle && \
+            git clone https://github.com/msanders/snipmate.vim.git && \
+            cd -
+            '''
 
+    if 'snipmate' in args.target:
+        print(colors.green('Deploying snipmate...'))
+        tmp_cmds.append(deploy_snipmate)
+        add_vimrc('''
+        "---------------------------------------
+        " Plugin - NerdTree
+        "---------------------------------------
+        map <C-n> :NERDTreeToggle<CR>
+        ''')
+
+    #
+    deploy_nerdtree = '''
+            cd ~/.vim/bundle && \
+            git clone https://github.com/scrooloose/nerdtree.git && \
+            cd -
+            '''
+
+    if 'nerdtree' in args.target:
+        print(colors.green('Deploying nerdtree...'))
+        tmp_cmds.append(deploy_nerdtree)
+
+    #
     print(colors.green('Backup updated vimrc...'))
     subprocess.call(backup_vimrc, shell=True)
 
+    #
     for tmp_cmd in tmp_cmds:
         subprocess.call(tmp_cmd, shell=True)
 

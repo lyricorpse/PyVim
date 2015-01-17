@@ -138,6 +138,8 @@ highlight ColorColumn ctermbg=233
 " Plugin - NerdCommenter
 "---------------------------------------
 map <c-h> ,c<space>
+map <c-l> ,cl<space>
+let NERDSpaceDelims=1
 
 
 "---------------------------------------
@@ -166,4 +168,10 @@ let g:airline_symbols.linenr = '⭡'
 " Plugin - PythonMode
 "---------------------------------------
 let g:pymode = 1
+
+
+"---------------------------------------
+" Plugin - NerdTree
+"---------------------------------------
+autocmd vimenter * NERDTree
 

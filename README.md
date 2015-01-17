@@ -6,7 +6,9 @@ This is a easy tool to configurate your vim.
 By default, the vim mode is Python.
 
 ## Requirement
-+ colors
+
++ Python 3
++ [colors](https://github.com/verigak/colors)
 
 ## Usage
 
@@ -19,10 +21,19 @@ To cleanup:
 To deploy:
 
 ``` bash
-./pyvim.py deploy -t vimrc pathogen
+./pyvim.py deploy -t vimrc pathogen <other-plugins>
 ```
 
-## Plugin Manager: Pathogen
+## Plugins
+
++ [Pathogen](https://github.com/tpope/vim-pathogen)
++ [NerdCommenter](https://github.com/scrooloose/nerdcommenter)
++ [NerdTree](https://github.com/scrooloose/nerdtree)
++ [PythonMode](https://github.com/klen/python-mode)
++ [SnipMate](https://github.com/msanders/snipmate.vim)
++ [CtrlP](https://github.com/kien/ctrlp.vim)
++ [AirLine](https://github.com/bling/vim-airline)
++ [Wombat256](https://github.com/vim-scripts/wombat256.vim)
 
 ## About
 
