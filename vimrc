@@ -35,8 +35,8 @@ autocmd BufReadPost *
 set autochdir
 
 " Show whitespace
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Color scheme
 set t_Co=256
@@ -61,11 +61,7 @@ set history=700
 set undolevels=700
 
 " Indent
-"set autoindent
-"set smartindent
-set noautoindent
 set expandtab
-set shiftround
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -168,10 +164,11 @@ let g:airline_symbols.linenr = '⭡'
 " Plugin - PythonMode
 "---------------------------------------
 let g:pymode = 1
+let g:pymode_run_bind = '<leader>r'
 
 
 "---------------------------------------
 " Plugin - NerdTree
 "---------------------------------------
-autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
