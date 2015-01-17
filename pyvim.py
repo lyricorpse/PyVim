@@ -110,6 +110,7 @@ def deploy(args):
         " Plugin - NerdCommenter
         "---------------------------------------
         map <c-h> ,c<space>
+        let NERDSpaceDelims=1
         ''')
 
     #
