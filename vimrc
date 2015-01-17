@@ -164,6 +164,7 @@ let g:airline_symbols.linenr = '⭡'
 " Plugin - PythonMode
 "---------------------------------------
 let g:pymode = 1
+let g:pymode_python = 'python3'
 let g:pymode_run_bind = '<leader>r'
 
 
@@ -171,4 +172,16 @@ let g:pymode_run_bind = '<leader>r'
 " Plugin - NerdTree
 "---------------------------------------
 map <C-n> :NERDTreeToggle<CR>
+
+
+"---------------------------------------
+" Plugin - NCL
+"---------------------------------------
+au BufRead,BufNewFile *.ncl set filetype=ncl
+au! Syntax newlang source $VIM/ncl.vim
+
+set complete-=k complete+=k
+set wildmode=list:full
+set wildmenu
+au BufRead,BufNewFile *ncl set dictionary=~/.vim/dictionary/ncl.dic.
 

@@ -22,6 +22,7 @@ plugins = {
     'airline': 'https://github.com/bling/vim-airline.git ',
     'snipmate': 'https://github.com/msanders/snipmate.vim.git',
     'pythonmode': 'https://github.com/klen/python-mode.git',
+    'ncl': '',
 }
 
 configs = {
@@ -85,7 +86,21 @@ configs = {
     " Plugin - PythonMode
     "---------------------------------------
     let g:pymode = 1
+    let g:pymode_python = 'python3'
     let g:pymode_run_bind = '<leader>r'
+    ''',
+
+    'ncl': '''
+    "---------------------------------------
+    " Plugin - NCL
+    "---------------------------------------
+    au BufRead,BufNewFile *.ncl set filetype=ncl
+    au! Syntax newlang source $VIM/ncl.vim
+
+    set complete-=k complete+=k
+    set wildmode=list:full
+    set wildmenu
+    au BufRead,BufNewFile *ncl set dictionary=~/.vim/dictionary/ncl.dic.
     ''',
 }
 
@@ -118,6 +133,20 @@ def install(plugin):
             deploy_plugin = '''
                 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
                 curl -LSso ~/.vim/autoload/pathogen.vim ''' + plugins[plugin] + '''
+            '''
+
+        elif plugin == 'ncl':
+
+            deploy_plugin = '''
+                mkdir -p ~/.vim/syntax ~/.vim/dictionary && \
+                wget http://www.ncl.ucar.edu/Applications/Files/ncl3.vim \
+                    -O ~/.vim/syntax/ncl.vim && \
+                wget http://www.ncl.ucar.edu/Applications/Files/ncl.dic \
+                    -O ~/.vim/dictionary/ncl.dic && \
+                cd ~/.vim/bundle/nerdcommenter/plugin && \
+                sed 's/'ncf'/'ncl'/g' NERD_commenter.vim &> tmp && \
+                mv tmp NERD_commenter.vim && \
+                cd -
             '''
 
         else:
