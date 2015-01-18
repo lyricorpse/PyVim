@@ -88,6 +88,7 @@ configs = {
     let g:pymode = 1
     let g:pymode_python = 'python3'
     let g:pymode_run_bind = '<leader>r'
+    let g:pymode_folding = 0
     ''',
 
     'ncl': '''
