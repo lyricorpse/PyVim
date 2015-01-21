@@ -22,6 +22,7 @@ plugins = {
     'airline': 'https://github.com/bling/vim-airline.git ',
     'snipmate': 'https://github.com/msanders/snipmate.vim.git',
     'pythonmode': 'https://github.com/klen/python-mode.git',
+    'markdown': 'https://github.com/plasticboy/vim-markdown.git',
     'ncl': '',
 }
 
@@ -89,6 +90,17 @@ configs = {
     let g:pymode_python = 'python3'
     let g:pymode_run_bind = '<leader>r'
     let g:pymode_folding = 0
+    let g:pymode_rope_complete_on_dot = 0
+    ''',
+
+    'markdown': '''
+    "---------------------------------------
+    " Plugin - Markdown
+    "---------------------------------------
+    let g:vim_markdown_folding_disabled=1
+    let g:vim_markdown_math=1
+    let g:vim_markdown_frontmatter=1
+    let g:vim_markdown_no_default_key_mappings=1
     ''',
 
     'ncl': '''
